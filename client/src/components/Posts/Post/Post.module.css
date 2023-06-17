@@ -1,0 +1,199 @@
+.postCard{
+    width: 45%;
+    height:auto;
+    margin: 1rem 1rem;
+    border-radius: 15px;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(204,204,204,0.89);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(204,204,204,0.89);
+    box-shadow: 0px 0px 4px 0px rgba(204,204,204,0.89);
+}
+
+.topDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+}
+
+.circleImg{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border: 0.7px solid #ccc;
+    color: #ccc;
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 1.2rem;
+}
+.creatorInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.createdBy p{
+    font-size: 0.8rem;
+    color: #a3a3a3;
+}
+
+.createdBy h3{
+    color: #302f2f;
+}
+
+.dotsButton button{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.5rem;
+    color: #a3a3a3;
+}
+
+.caption{
+    padding: 0.5rem 1.2rem;
+    color: #6b6b6b;
+}
+
+.image{
+    width: 100%;
+    height: auto;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+}
+
+.actionButtons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 0;
+    
+}
+
+.actionButtons button{
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #5e5e5e;
+    cursor: pointer;
+}
+
+.commentInput{
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.commentCircleImg{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border: 0.7px solid #ccc;
+    color: #ccc;
+}
+
+.commentInputDiv{
+    flex: 1;
+    background-color: #ECF3FF;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+
+}
+
+.commentInputDiv input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+}
+
+.editPostModal{
+    position: absolute;
+    width: 100px;
+    height: auto;
+    min-height: 70px;
+    padding: 0.5rem 0.3rem;
+    background-color: #ECF3FF;
+    top: 1rem;
+    right : 1.2rem;
+    border-radius: 10px 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.closeEditButton{
+    
+}
+
+.editPostModal button{
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+}
+
+.editPostModal button:hover{
+    background-color: #ccc;
+    border-radius: 5px;
+    color: #fff;
+}
+
+
+@media screen and (max-width: 500px) {
+    .postCard{
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .actionButtons button{
+        font-size: 0.7rem;
+    }
+
+    .commentInput{
+        padding: 0.5rem;
+        margin-top: 0.5rem ;
+    }
+
+    .commentInputDiv{
+        padding: 0.3rem 0.4rem;
+        border-radius: 10px;
+    
+    }
+    
+    .commentInputDiv input{
+        width: 100%;
+        font-size: 0.7rem;
+    }
+
+    .commentCircleImg{
+        width:35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+}
