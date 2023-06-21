@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import memories from '../../images/memories.png';
 import classes from './NavBar.module.css';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate, useLocation} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const NavBar = () => {
-    const user = null;
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const logout = () => {
+        dispatch({ type: 'LOGOUT' });
+        navigate('/');
+        setUser(null);
+    }
+
+    useEffect(() => {
+        const token = user?.token;
+
+        //JWT
+        setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [location])
 
   return (
     <nav className={classes.nav}>
@@ -12,17 +28,15 @@ const NavBar = () => {
             <Link to="/">Memories</Link>
             <img src={memories} alt="memories" />
         </div>
-        <div className={classes.loginLogout}>
+        <div className={user ? classes.loginLogout : ""}>
             {user ? (
                 <div className={classes.profile}>
-                    <div className={classes.avatar}>
-                        <img src="" alt="" />
-                    </div>
-                    <h6>Username</h6>
-                    <Link to="">Logout</Link>
+                    <img className={classes.avatar} src={user.result.imageUrl} alt="" />
+                    <h6>{user.result.name}</h6>
+                    <button className={classes.logoutButton} onClick={logout}>Logout</button>
                 </div>
             ) : (
-                <Link to="/auth" className={classes.login}>Log In</Link>
+                <Link to="/auth" className={classes.login} >Log In</Link>
             )}
         </div>
     </nav>

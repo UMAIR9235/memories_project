@@ -24,6 +24,8 @@
 .brandContainer{
     display: flex;
     align-items: center;
+    /* border: 1px solid #000; */
+    flex: 2;
 }
 
 .brandContainer a{
@@ -43,6 +45,40 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logoutButton{
+    text-decoration: none;
+    padding: 0.3rem 1rem;
+    background-color: #e80051;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.profile h6{
+    font-size: 1.5rem;
+    color: #302f2f;
+}
+
+.loginLogout{
+    flex: 1;
+}
+
+.avatar{
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    
+}
+
+
 
 
 

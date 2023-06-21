@@ -1,12 +1,15 @@
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from '@mui/styles';
 
-export default makeStyles((theme) => ({
+
+
+const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(18),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     padding: theme.spacing(2),
+
   },
   root: {
     '& .MuiTextField-root': {
@@ -22,9 +25,11 @@ export default makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 2, 2),
   },
   googleButton: {
     marginBottom: theme.spacing(2),
   },
 }));
+
+export default useStyles;

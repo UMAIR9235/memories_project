@@ -5,6 +5,8 @@ import Auth from './components/Auth/Auth';
 import RootLayout from './components/RootLayout/RootLayout';
 
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,8 +22,10 @@ const router = createBrowserRouter([
 
 const App = () => {
 
+
   return (
     <RouterProvider router={router}/>
+    
   //  <div className={classes.header}>
   //     <NavBar />
   //     <Home />
