@@ -7,9 +7,10 @@ import { useSelector } from "react-redux";
 
 
 const Form = ({currentId, setCurrentId}) => {
-    const [postData, setPostData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''});
+    const [postData, setPostData] = useState({title: '', message: '', tags: '', selectedFile: ''});
     const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null)
     const dispatch = useDispatch();
+    const user = JSON.parse(localStorage.getItem('profile'));
 
     useEffect(() => {
         if(post){
@@ -17,27 +18,38 @@ const Form = ({currentId, setCurrentId}) => {
         }
     }, [post])
 
-    const handleSubmit = (event) => {
+    const clear = () => {
+        setCurrentId(null)
+        setPostData({title: '', message: '', tags: '', selectedFile: ''})
+    }
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         if(currentId) {
-            dispatch(updatePost(currentId, postData));
+            dispatch(createPost({...postData, name: user?.result?.name}));
+            clear();
         } else {
-            dispatch(createPost(postData))
+            dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
+            clear();
         }
-        clear();
+    };
 
+    if(!user?.result?.name) {
+        return (
+            <div>
+                <h2>Please Sign In to create your own Post</h2>
+            </div>
+        )
     }
 
-    const clear = () => {
-        setCurrentId(null)
-        setPostData({creator: '', title: '', message: '', tags: '', selectedFile: ''})
-    }
+
+
+    
 
     return <div className={classes.createMemoryForm}>
         <h3>{currentId ? "Editing" : "Creating"} a Memory</h3>
         <form className={classes.form} onSubmit={handleSubmit}>
-            <input type="text" name="creator" placeholder="Creator" value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value})}/>
             <input type="text" name="title" placeholder="Title" value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value})}/>
             <input type="text" name="message" placeholder="Message" value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value})}/>
             <input type="text" name="tags" placeholder="Tags" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',')})}/>

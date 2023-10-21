@@ -24,7 +24,7 @@ const Post = ({post, setCurrentId}) => {
                     <BsPersonFill />
                 </div>
                 <div className={classes.createdBy}>
-                    <h3>{post.creator}</h3>
+                    <h3>{post.name}</h3>
                     <p>2 minutes ago</p>
                 </div>
             </div>
